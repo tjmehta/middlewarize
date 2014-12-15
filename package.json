@@ -7,7 +7,8 @@
     "test": "test"
   },
   "scripts": {
-    "test": "lab"
+    "test-watch": "nodemon --exec npm test",
+    "test": "clear && lab -v -c ./test/*.js"
   },
   "repository": {
     "type": "git",
@@ -30,6 +31,18 @@
   "homepage": "https://github.com/tjmehta/middlewarize",
   "devDependencies": {
     "dat-middleware": "^1.9.2",
-    "lab": "^5.1.0"
+    "lab": "^5.1.0",
+    "code": "^1.2.1",
+    "supertest": "^0.15.0",
+    "express": "^4.10.6",
+    "body-parser": "^1.10.0"
+  },
+  "dependencies": {
+    "101": "^0.7.3",
+    "mongooseware": "^0.4.0",
+    "i": "^0.3.2",
+    "body-parser": "^1.10.0",
+    "keypather": "^1.7.5",
+    "callback-count": "^0.1.0"
   }
 }
