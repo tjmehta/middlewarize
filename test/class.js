@@ -147,5 +147,30 @@ describe('class middlewarization', function () {
           .expect(200, 'static', count.inc().next);
       });
     });
+
+    describe('non-existant chain', function() {
+      it('should throw an error', function (done) {
+        var cat = middlewarize(Cat);
+        var app = createAppWithMiddlewares(
+          cat.syncStatic().syncStatic(),
+          mw.res.send('result')
+        );
+        var count = createCount(2, done);
+        request(app)
+          .get('/')
+          .expect(500, function (err, res) {
+            if (err) { return count.next(err); }
+            expect(res.body.message).to.match(/Cannot/);
+            count.next();
+          });
+        request(app) // twice to make sure the middlewares work multiple times..
+          .get('/')
+          .expect(500, function (err, res) {
+            if (err) { return count.next(err); }
+            expect(res.body.message).to.match(/Cannot/);
+            count.next();
+          });
+      });
+    });
   });
 });
