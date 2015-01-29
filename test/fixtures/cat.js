@@ -1,6 +1,9 @@
+var Animal = require('./animal');
+
 module.exports = Cat;
 
 function Cat (name) {
+  Animal.call(this, true);
   this.name = name;
   this.meowCount = 0;
 }
@@ -13,6 +16,9 @@ Cat.asyncStatic = function (cb) {
 Cat.asyncError = function (cb) {
   cb(new Error('boom'));
 };
+
+require('util').inherits(Cat, Animal);
+
 Cat.prototype.syncMeow = function () {
   this.meowCount++;
   return 'meow'+this.meowCount;

@@ -1,12 +1,8 @@
-var Code = require('code');
 var Lab = require('lab');
 var lab = exports.lab = Lab.script();
 
 var describe = lab.describe;
 var it = lab.it;
-var before = lab.before;
-var after = lab.after;
-var expect = Code.expect;
 var mw = require('dat-middleware');
 var request = require('supertest');
 var Cat = require('./fixtures/cat');
@@ -112,6 +108,21 @@ describe('class middlewarization', function () {
         request(app) // twice to make sure the middlewares work multiple times..
           .get('/')
           .expect(200, 'meow1', count.inc().next);
+      });
+      it('should assign sync result to default key (if unspecified, inherited)', function(done) {
+        var cat = middlewarize(Cat);
+        var app = createAppWithMiddlewares(
+          cat.new('garfield'),
+          cat.instance.getIsMammal().sync(),
+          mw.res.send('catResult')
+        );
+        var count = createCount(done);
+        request(app)
+          .get('/')
+          .expect(200, 'true', count.inc().next);
+        request(app) // twice to make sure the middlewares work multiple times..
+          .get('/')
+          .expect(200, 'true', count.inc().next);
       });
       describe('errors', function () {
         it('should error if instance does not exist on req', function (done) {
