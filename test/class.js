@@ -16,7 +16,7 @@ var middlewarize = require('../index');
 var createCount = require('callback-count');
 
 describe('class middlewarization', function () {
-  describe('new', function() {
+  describe('new', function () {
     it('should create an instance of the class on req', function (done) {
       var cat = middlewarize(Cat);
       var app = createAppWithMiddlewares(
@@ -33,9 +33,9 @@ describe('class middlewarization', function () {
     });
   });
 
-  describe('static method', function() {
-    describe('async', function() {
-      it('should assign the async result to the specified key', function(done) {
+  describe('static method', function () {
+    describe('async', function () {
+      it('should assign the async result to the specified key', function (done) {
         var cat = middlewarize(Cat);
         var app = createAppWithMiddlewares(
           cat.asyncStatic('cb').async('result'),
@@ -49,7 +49,7 @@ describe('class middlewarization', function () {
           .get('/')
           .expect(200, 'static', count.inc().next);
       });
-      it('should assign the async result to the default key (if unspecified)', function(done) {
+      it('should assign the async result to the default key (if unspecified)', function (done) {
         var cat = middlewarize(Cat);
         var app = createAppWithMiddlewares(
           cat.asyncStatic('cb').async(),
@@ -63,7 +63,7 @@ describe('class middlewarization', function () {
           .get('/')
           .expect(200, 'static', count.inc().next);
       });
-      it('should assign the async result to the default key (cb auto-async)', function(done) {
+      it('should assign the async result to the default key (cb auto-async)', function (done) {
         var cat = middlewarize(Cat);
         var app = createAppWithMiddlewares(
           cat.asyncStatic('cb'),
@@ -77,7 +77,7 @@ describe('class middlewarization', function () {
           .get('/')
           .expect(200, 'static', count.inc().next);
       });
-      it('should next error if async function errors', function(done) {
+      it('should next error if async function errors', function (done) {
         var cat = middlewarize(Cat);
         var app = createAppWithMiddlewares(
           cat.asyncError('cb'),
@@ -91,7 +91,7 @@ describe('class middlewarization', function () {
           .get('/')
           .expect(500, { message: 'boom' }, count.inc().next);
       });
-      it('should error is used with a chain', function(done) {
+      it('should error is used with a chain', function (done) {
         var cat = middlewarize(Cat);
         try {
           cat.asyncError('cb').new('garfield');
@@ -103,8 +103,8 @@ describe('class middlewarization', function () {
       });
     });
 
-    describe('sync', function() {
-      it('should assign the async result to the specified key', function(done) {
+    describe('sync', function () {
+      it('should assign the async result to the specified key', function (done) {
         var cat = middlewarize(Cat);
         var app = createAppWithMiddlewares(
           cat.syncStatic().sync('result'),
@@ -118,7 +118,7 @@ describe('class middlewarization', function () {
           .get('/')
           .expect(200, 'static', count.inc().next);
       });
-      it('should assign the async result to the default key (if unspecified)', function(done) {
+      it('should assign the async result to the default key (if unspecified)', function (done) {
         var cat = middlewarize(Cat);
         var app = createAppWithMiddlewares(
           cat.syncStatic().sync(),
@@ -132,7 +132,7 @@ describe('class middlewarization', function () {
           .get('/')
           .expect(200, 'static', count.inc().next);
       });
-      it('should assign the async result to the default key (no-cb auto-sync)', function(done) {
+      it('should assign the async result to the default key (no-cb auto-sync)', function (done) {
         var cat = middlewarize(Cat);
         var app = createAppWithMiddlewares(
           cat.syncStatic(),

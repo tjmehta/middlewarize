@@ -17,8 +17,8 @@ var createCount = require('callback-count');
 
 describe('class middlewarization', function () {
 
-  describe('instance method', function() {
-    describe('async', function() {
+  describe('instance method', function () {
+    describe('async', function () {
       it('should assign async results to keys specified', function (done) {
         var cat = middlewarize(Cat);
         var app = createAppWithMiddlewares(
@@ -64,7 +64,7 @@ describe('class middlewarization', function () {
           .get('/')
           .expect(500, { message: 'boom (instance)' }, count.inc().next);
       });
-      describe('errors', function() {
+      describe('errors', function () {
         it('should error if instance does not exist on req', function (done) {
           var cat = middlewarize(Cat);
           var app = createAppWithMiddlewares(
@@ -82,7 +82,7 @@ describe('class middlewarization', function () {
       });
     });
 
-    describe('sync', function() {
+    describe('sync', function () {
       it('should assign sync result to key specified', function (done) {
         var cat = middlewarize(Cat);
         var app = createAppWithMiddlewares(
@@ -113,7 +113,7 @@ describe('class middlewarization', function () {
           .get('/')
           .expect(200, 'meow1', count.inc().next);
       });
-      describe('errors', function() {
+      describe('errors', function () {
         it('should error if instance does not exist on req', function (done) {
           var cat = middlewarize(Cat);
           var app = createAppWithMiddlewares(
@@ -132,7 +132,7 @@ describe('class middlewarization', function () {
     });
 
 
-    describe('no async or sync', function() {
+    describe('no async or sync', function () {
       it('should default to sync if cb not used as an arg', function (done) {
         var cat = middlewarize(Cat);
         var app = createAppWithMiddlewares(
@@ -166,9 +166,9 @@ describe('class middlewarization', function () {
     });
   });
 
-  describe('set key', function() {
-    describe('instance method', function() {
-      describe('async', function() {
+  describe('set key', function () {
+    describe('instance method', function () {
+      describe('async', function () {
         it('should assign async results to keys specified', function (done) {
           var cat = middlewarize(CatNoName);
           var app = createAppWithMiddlewares(
@@ -186,7 +186,7 @@ describe('class middlewarization', function () {
         });
       });
 
-      describe('sync', function() {
+      describe('sync', function () {
         it('should assign sync result to key specified', function (done) {
           var cat = middlewarize(CatNoName);
           var app = createAppWithMiddlewares(
