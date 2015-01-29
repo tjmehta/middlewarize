@@ -3,6 +3,7 @@ var lab = exports.lab = Lab.script();
 
 var describe = lab.describe;
 var it = lab.it;
+var expect = require('code').expect;
 var mw = require('dat-middleware');
 var request = require('supertest');
 var createAppWithMiddlewares = require('./fixtures/create-app-with-middlewares');
@@ -83,5 +84,17 @@ describe('instance', function () {
     request(app) // twice to make sure the middlewares work multiple times..
       .get('/')
       .expect(200, 'true', count.inc().next);
+  });
+  describe('error', function () {
+    var UnnamedClass = function () {};
+    it('should not error', function (done) {
+      try {
+        middlewarize(new UnnamedClass());
+      }
+      catch (err) {
+        expect(err.message).to.match(/required/);
+      }
+      done();
+    });
   });
 });
