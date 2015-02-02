@@ -1,6 +1,6 @@
 {
   "name": "middlewarize",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Use modules and classes and middleware (express and restify)",
   "main": "index.js",
   "directories": {
