@@ -1,7 +1,7 @@
 middlewarize
 ============
 
-Make modules/classes work like middleware (for express and restify)
+Make modules/classes work like middleware (for express and restify) [![Build Status](https://travis-ci.org/tjmehta/middlewarize.svg)](https://travis-ci.org/tjmehta/middlewarize)
 Works great with [tjmehta/dat-middleware](https://github.com/tjmehta/dat-middleware)
 
 
