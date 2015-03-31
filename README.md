@@ -53,7 +53,7 @@ app.post('cats/actions/are-mammals',
   mw.res.send('catsAreMammals') // response sends "req.catsAreMammals" which equals "true"
 );
 
-app.post('cats/:name/actions/async-are-mammals',
+app.post('cats/actions/async-are-mammals',
   cat.asyncAreMammals('cb').async('catsAreMammals'), // saves the callback value to "req.catsAreMammals"
     // or just use "cat.asyncAreMammals('cb')" which saves the callback value to "req.catResult"
   mw.res.send('catsAreMammals') // response sends "req.catsAreMammals" which equals "true"
