@@ -7,7 +7,7 @@ Works great with [tjmehta/dat-middleware](https://github.com/tjmehta/dat-middlew
 
 # Installation
 ```bash
-npm install mongooseware
+npm install middlewarize
 ```
 
 # Examples
