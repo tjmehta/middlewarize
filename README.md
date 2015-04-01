@@ -1,13 +1,20 @@
 middlewarize
 ============
+[![Build Status](https://travis-ci.org/tjmehta/middlewarize.svg)](https://travis-ci.org/tjmehta/middlewarize)
+[![Code Climate](https://codeclimate.com/github/tjmehta/middlewarize/badges/gpa.svg)](https://codeclimate.com/github/tjmehta/middlewarize)
+[![Test Coverage](https://codeclimate.com/github/tjmehta/middlewarize/badges/coverage.svg)](https://codeclimate.com/github/tjmehta/middlewarize)
+[![Dependency Status](https://david-dm.org/tjmehta/middlewarize.svg)](https://david-dm.org/tjmehta/middlewarize)
+[![devDependency Status](https://david-dm.org/tjmehta/middlewarize/dev-status.svg)](https://david-dm.org/tjmehta/middlewarize#info=devDependencies)
 
-Make modules/classes work like middleware (for express and restify) [![Build Status](https://travis-ci.org/tjmehta/middlewarize.svg)](https://travis-ci.org/tjmehta/middlewarize)  
+[![NPM](https://nodei.co/npm/middlewarize.png?compact=true)](https://nodei.co/npm/middlewarize/)  
+
+Make modules/classes work like middleware (for express and restify)  
 Works great with [tjmehta/dat-middleware](https://github.com/tjmehta/dat-middleware)
 
 
 # Installation
 ```bash
-npm install mongooseware
+npm install middlewarize
 ```
 
 # Examples
