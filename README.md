@@ -38,7 +38,7 @@ Cat.prototype.speak = function () {
 Cat.prototype.asyncSpeak = function (cb) {
   cb(null, this.sound);
 };
-var blogs = require('mongooseware')(BlogModel);
+var cat = require('middlewarize')(Cat);
 var app = require('express')();
 
 var cats = {
